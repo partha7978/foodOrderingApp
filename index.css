@@ -27,8 +27,8 @@
 
 .restaurant-card {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     flex-direction: column;
     border: 0.5px solid black;
     padding: 0.5rem;

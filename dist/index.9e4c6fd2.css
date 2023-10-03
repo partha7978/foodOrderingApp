@@ -29,8 +29,8 @@
   border: .5px solid #000;
   border-radius: 10px;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   width: 250px;
   height: 300px;
   margin: 1rem;
