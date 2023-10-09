@@ -22,7 +22,10 @@
 }
 
 .nav-items ul li {
+  justify-content: center;
+  align-items: center;
   padding: 0 1.5rem;
+  display: flex;
 }
 
 .restaurant-container {
@@ -81,6 +84,39 @@
   width: 250px;
   height: 300px;
   margin: 1rem;
+}
+
+.login__btn {
+  cursor: pointer;
+  color: #000;
+  background-color: #e2dcff;
+  border: .5px solid #000;
+  border-radius: 15px;
+  padding: .3rem .8rem;
+  font-size: .7rem;
+}
+
+.search {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.search input {
+  border: .5px solid #000;
+  border-radius: 15px;
+  padding: .3rem .8rem;
+  font-size: .7rem;
+}
+
+.search .searchBtn {
+  cursor: pointer;
+  border: .5px solid #000;
+  border-radius: 15px;
+  margin: 0 .5rem;
+  padding: .3rem .8rem;
+  font-size: .7rem;
 }
 
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
