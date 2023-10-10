@@ -1,7 +1,19 @@
+@import "https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900&display=swap";
+:root {
+  --black-color: #000;
+  --secondary-color: #fff;
+  --white-color: #fff;
+  --border-color: #000;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: Nunito Sans, sans-serif;
 }
 
 .header {
@@ -36,16 +48,66 @@
 }
 
 .restaurant-card {
-  border: .5px solid #000;
+  justify-content: space-between;
+  align-items: c;
+  border: .5px solid var(--border-color);
   border-radius: 10px;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  gap: .3rem;
   width: 250px;
   height: 300px;
   margin: 1rem;
   padding: .5rem;
   display: flex;
+}
+
+.restaurant-card .card__name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.restaurant-card .card__cuisines {
+  color: gray;
+  font-size: .7rem;
+}
+
+.restaurant-card .card__rating {
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.restaurant-card .card__cost {
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.restaurant-card .card__rating-container {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
+.restaurant-card .card__textContent {
+  flex-direction: column;
+  gap: .3rem;
+  display: flex;
+}
+
+.restaurant-card .order-btn {
+  cursor: pointer;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+  padding: .5rem .8rem;
+  font-size: .7rem;
+}
+
+.restaurant-card .card__time {
+  font-size: .7rem;
+  font-weight: 700;
 }
 
 .card__image {
@@ -62,9 +124,10 @@
 }
 
 .filters .filter__btn {
+  border: .5px solid var(--border-color);
   cursor: pointer;
-  background-color: #e2dcff;
-  border: .5px solid #000;
+  background-color: var(--black-color);
+  color: var(--white-color);
   border-radius: 15px;
   margin: .5rem;
   padding: .3rem .8rem;
@@ -87,10 +150,10 @@
 }
 
 .login__btn {
+  border: .5px solid var(--border-color);
   cursor: pointer;
-  color: #000;
-  background-color: #e2dcff;
-  border: .5px solid #000;
+  background-color: var(--black-color);
+  color: var(--white-color);
   border-radius: 15px;
   padding: .3rem .8rem;
   font-size: .7rem;
@@ -100,22 +163,27 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 1rem;
   display: flex;
 }
 
 .search input {
-  border: .5px solid #000;
-  border-radius: 15px;
-  padding: .3rem .8rem;
+  border: .5px solid var(--border-color);
+  border-radius: 10px;
+  outline: none;
+  width: 80%;
+  padding: .8rem;
   font-size: .7rem;
 }
 
 .search .searchBtn {
+  border: .5px solid var(--border-color);
   cursor: pointer;
-  border: .5px solid #000;
-  border-radius: 15px;
-  margin: 0 .5rem;
-  padding: .3rem .8rem;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border-radius: 10px;
+  margin: 0 1rem;
+  padding: .8rem;
   font-size: .7rem;
 }
 

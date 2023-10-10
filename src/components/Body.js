@@ -8,12 +8,19 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [unChangedRestaurantList, setUnchangedRestaurantList] = useState([]);
 
-  const handleFilter = () => {
-    const filteredList = listOfRestaurants.filter(
-      (restaurant) => restaurant?.info?.avgRating > 4.1
-    );
-    setListOfRestaurants(filteredList);
-    console.log(listOfRestaurants);
+  const handleFilter = (filterName) => {
+    if(filterName === "top") {
+      const filteredList = listOfRestaurants.filter(
+        (restaurant) => restaurant?.info?.avgRating > 4.1
+      );
+      setListOfRestaurants(filteredList);
+      console.log(listOfRestaurants);
+    }
+    else if(filterName === "clear" || filterName === "all") {
+      setListOfRestaurants(unChangedRestaurantList);
+      console.log(listOfRestaurants);
+    }
+
   };
 
   useEffect(() => {
@@ -21,17 +28,11 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/mapi/homepage/getCards?lat=12.9298689&lng=77.6848366"
-    );
-    const jsonData = await data.json();
-    setListOfRestaurants(
-      jsonData?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
+    const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=12.9298689&lng=77.6848366");
+      const jsonData = await data.json();
+    setListOfRestaurants(jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
     setUnchangedRestaurantList(
-      jsonData?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
-      ?.restaurants
+      jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
     )
     console.log(jsonData, "jsonData");
     console.log(listOfRestaurants, 'listOfRestaurants');
@@ -59,16 +60,16 @@ const Body = () => {
           <button className="searchBtn" onClick={() => handleSearchFilter()}>Search</button>
         </div>
         <div className="filters">
-          <button className="filter__btn">All</button>
+          <button className="filter__btn" onClick={() => handleFilter("all")}>All</button>
           <button
             className="filter__btn"
             onClick={() => {
-              handleFilter();
+              handleFilter("top");
             }}
           >
             Top Rated
           </button>
-          <button className="filter__btn">Clear</button>
+          <button className="filter__btn" onClick={() => handleFilter("clear")}>Clear</button>
         </div>
       </div>
       <div className="restaurant-container">
