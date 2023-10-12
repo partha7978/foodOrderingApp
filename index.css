@@ -186,3 +186,18 @@ body {
   background-color: var(--black-color);
   color: var(--white-color);
 }
+
+/* user card */
+.user__card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 0.5px solid var(--border-color);
+  padding: 0.5rem;
+  width: 250px;
+  gap: 0.3rem;
+  height: auto;
+  margin: 1rem;
+  border-radius: 10px;
+}
+/* user card */

@@ -1,8 +1,10 @@
 import { CDN_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const RestaurantCard = (props) => {
   const {
     name,
+    id,
     cloudinaryImageId,
     cuisines,
     avgRating,
@@ -28,7 +30,9 @@ const RestaurantCard = (props) => {
         </div>
         <p className="card__cost">{costForTwo}</p>
       </div>
-      <button className="order-btn">Order Now</button>
+      <Link to={`/restaurant/${id}`} className="order-btn">
+        <button className="order-btn">Order Now</button>
+      </Link>
     </div>
   );
 };

@@ -187,4 +187,17 @@ body {
   font-size: .7rem;
 }
 
+.user__card {
+  border: .5px solid var(--border-color);
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;
+  width: 250px;
+  height: auto;
+  margin: 1rem;
+  padding: .5rem;
+  display: flex;
+}
+
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
