@@ -1,12 +1,14 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-
+import useRestaurantData from "../utils/useRestaurantData";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [unChangedRestaurantList, setUnchangedRestaurantList] = useState([]);
+
+  const unChangedRestaurantList = useRestaurantData();
+  const listOfRestaurants = unChangedRestaurantList;
 
   const handleFilter = (filterName) => {
     if (filterName === "top") {
@@ -20,48 +22,6 @@ const Body = () => {
       console.log(listOfRestaurants);
     }
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/mapi/homepage/getCards?lat=12.9298689&lng=77.6848366"
-    );
-    const jsonData = await data.json();
-
-    if (
-      jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
-        ?.restaurants === undefined
-    ) {
-      const newData = await fetch(
-        "https://www.swiggy.com/mapi/homepage/getCards?lat=12.9298689&lng=77.6848366"
-      );
-      const newJsonData = await newData.json();
-      setListOfRestaurants(
-        newJsonData?.data?.success?.cards[4]?.gridWidget?.gridElements
-          ?.infoWithStyle?.restaurants
-      );
-      setUnchangedRestaurantList(
-        newJsonData?.data?.success?.cards[4]?.gridWidget?.gridElements
-          ?.infoWithStyle?.restaurants
-      );
-    } else {
-      setListOfRestaurants(
-        jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements
-          ?.infoWithStyle?.restaurants
-      );
-      setUnchangedRestaurantList(
-        jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements
-          ?.infoWithStyle?.restaurants
-      );
-    }
-    console.log(jsonData, "jsonData");
-    console.log(listOfRestaurants, "listOfRestaurants");
-    console.log(unChangedRestaurantList, "unChangedRestaurantList");
-  };
-
   const handleSearchFilter = () => {
     const filteredList = unChangedRestaurantList.filter((restaurant) =>
       restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
@@ -70,6 +30,16 @@ const Body = () => {
     console.log(listOfRestaurants, "listOfRestaurants");
     console.log(unChangedRestaurantList, "unChangedRestaurantList");
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus) {
+    return (
+      <>
+        <h1>Looks like you are offline</h1>
+        <h3>Please check your internet connection</h3>
+      </>
+    );
+  }
 
   console.log("body rendered");
 

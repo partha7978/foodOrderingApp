@@ -13,24 +13,51 @@ import React from "react";
 // export default User;
 
 class User extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            count: 0,
-        }
-    }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      userInfo: {
+        name: "",
+        location: "",
+        avatar_url: "",
+      },
+    };
+
+    console.log('constructor');
+  }
+
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/partha7978");
+    const user = await data.json();
+    this.setState({ userInfo: user });
+    // console.log(user);
+    console.log('componentDidMount');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+
   render() {
-    const { name, location} = this.props;
-    const { count} = this.state;
+    // const { name, location } = this.props;
+    console.log('render');
+    const { name, location } = this.state.userInfo;
     return (
       <div className="user__card">
-        <h1>Count: {count}</h1>
+        <img
+          style={{
+            width: "100px",
+            height: "100px",
+            borderRadius: "50%",
+          }}
+          src={this.state.userInfo.avatar_url}
+          alt="avatar"
+        />
         <h2>Name: {name}</h2>
         <p>Location: {location}</p>
         <p>Phone: 1234567890</p>
         <p>Email: 8XOgT@example.com</p>
-        <button onClick={() => this.setState({ count: count + 1})}>Click</button> --------start from 46min
       </div>
     );
   }

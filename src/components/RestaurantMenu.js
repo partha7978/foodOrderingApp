@@ -1,26 +1,13 @@
 import { useState, useEffect } from "react";
-import { MENU_API } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 const RestaurantMenu = () => {
-  const [restaurantInfo, setRestaurantInfo] = useState([]);
-
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  const restaurantInfo = useRestaurantMenu(resId);
 
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
-    console.log(MENU_API + resId);
-    const jsonData = await data.json();
-    setRestaurantInfo(jsonData.data);
-    console.log(jsonData, "jsonDataMENU");
-    console.log(restaurantInfo, "restaurantInfo");
-  };
-
-  if (restaurantInfo.length === 0) return <Shimmer />;
+  if (restaurantInfo === null) return <Shimmer />;
 
   const { name, cuisines, avgRatingString, totalRatingsString, areaName } =
     restaurantInfo?.cards[0]?.card?.card?.info;
@@ -50,7 +37,11 @@ const RestaurantMenu = () => {
         <div className="restaurant__menu-items" key={item?.card.info.id}>
           <span>{item?.card?.info?.name}</span>
           <div className="price_section">
-            <span>Rs.{item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100 }</span>
+            <span>
+              Rs.
+              {item?.card?.info?.price / 100 ||
+                item?.card?.info?.defaultPrice / 100}
+            </span>
             <span>⭐{item?.card?.info?.ratings?.aggregateRating?.rating}</span>
           </div>
         </div>
