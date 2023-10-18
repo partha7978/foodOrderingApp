@@ -15,22 +15,22 @@ export const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
+    <div className="flex justify-between p-4 bg-purple-50">
       <div className="logo-container">
         <img
-          className="logo"
+          className="w-16 h-16"
           src={LOGO_URL}
         />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status: {onlineStatus ? "✅" : "❌"}</li>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/grocery">Grocery</Link></li>
-          <li><Link to="/cart">Cart</Link></li>
-          <button className="login__btn" onClick={() =>handleLoginBtn()}>{btnName}</button>
+      <div className="flex items-center">
+        <ul className="flex space-x-4 items-center">
+          <li className="px-2 font-medium">Online Status: {onlineStatus ? "✅" : "❌"}</li>
+          <li className="px-2"><Link className="font-light" to="/">Home</Link></li>
+          <li className="px-2"><Link className="font-light" to="/about">About</Link></li>
+          <li className="px-2"><Link className="font-light" to="/contact">Contact</Link></li>
+          <li className="px-2"><Link className="font-light" to="/grocery">Grocery</Link></li>
+          <li className="px-2"><Link className="font-light" to="/cart">Cart</Link></li>
+          <button className="px-6 py-2 bg-gray-950 text-white rounded-lg" onClick={() =>handleLoginBtn()}>{btnName}</button>
         </ul>
       </div>
     </div>

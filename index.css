@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900&display=swap');
 :root {
   --black-color: rgb(0, 0, 0);
   --secondary-color: rgb(255, 255, 255);
@@ -114,10 +117,10 @@ body {
   height: 50%;
   object-fit: cover;
   border-radius: 10px;
-}
+} */
 
 /* filter */
-.filters {
+/* .filters {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,10 +135,10 @@ body {
   cursor: pointer;
   background-color: var(--black-color);
   color: var(--white-color);
-}
+} */
 
 /* for shimmer */
-.shimmer__container {
+/* .shimmer__container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -185,10 +188,10 @@ body {
   cursor: pointer;
   background-color: var(--black-color);
   color: var(--white-color);
-}
+} */
 
 /* user card */
-.user__card {
+/* .user__card {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -199,5 +202,6 @@ body {
   height: auto;
   margin: 1rem;
   border-radius: 10px;
-}
+} */
 /* user card */
+

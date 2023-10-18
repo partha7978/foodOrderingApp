@@ -48,34 +48,34 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="search-bar">
-        <div className="search">
-          <input
+        <div className="search flex justify-center items-center m-4 p-2">
+          <input className="px-3 py-2 w-96 mx-4 border border-solid border-black rounded-lg"
             type="text"
             placeholder="Search for a restaurant"
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <button className="searchBtn" onClick={() => handleSearchFilter()}>
+          <button className="mx-4 px-8 py-2 bg-gray-950 text-white rounded-lg cursor-pointer transition-all: ease-in duration-200  hover:scale-105" onClick={() => handleSearchFilter()}>
             Search
           </button>
         </div>
-        <div className="filters">
-          <button className="filter__btn" onClick={() => handleFilter("all")}>
+        <div className="flex justify-center items-center">
+          <button className="mx-4 px-4 py-1 rounded-xl text-xs bg-gray-950 text-white cursor-pointer transition-all: ease-in duration-200  hover:scale-105" onClick={() => handleFilter("all")}>
             All
           </button>
           <button
-            className="filter__btn"
+            className="mx-4 px-4 py-1 rounded-xl text-xs bg-gray-950 text-white cursor-pointer transition-all: ease-in duration-200  hover:scale-105"
             onClick={() => {
               handleFilter("top");
             }}
           >
             Top Rated
           </button>
-          <button className="filter__btn" onClick={() => handleFilter("clear")}>
+          <button className="mx-4 px-4 py-1 rounded-xl text-xs bg-gray-950 text-white cursor-pointer transition-all: ease-in duration-200  hover:scale-105" onClick={() => handleFilter("clear")}>
             Clear
           </button>
         </div>
       </div>
-      <div className="restaurant-container">
+      <div className="flex flex-wrap justify-center items-center">
         {listOfRestaurants.map((restaurant) => (
           <RestaurantCard
             key={restaurant?.info?.id}
