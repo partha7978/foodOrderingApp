@@ -6,9 +6,14 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const unChangedRestaurantList = useRestaurantData();
-  const listOfRestaurants = unChangedRestaurantList;
+
+  useEffect(() => {
+    console.log(listOfRestaurants.length, "listOfRestaurants");
+    setListOfRestaurants(unChangedRestaurantList);
+    console.log(listOfRestaurants, "listOfRestaurants");
+  }, [unChangedRestaurantList])
 
   const handleFilter = (filterName) => {
     if (filterName === "top") {
