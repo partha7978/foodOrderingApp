@@ -15,12 +15,13 @@ export const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="flex justify-between p-4 bg-purple-50">
-      <div className="logo-container">
+    <div className="flex justify-between p-4 ">
+      <div className="logo-container flex justify-center items-center">
         <img
-          className="w-16 h-16"
+          className="w-6 h-8"
           src={LOGO_URL}
         />
+        <h1 className="text-2xl font-bold text-[#FC8019] ml-2">Swiggy Clone</h1>
       </div>
       <div className="flex items-center">
         <ul className="flex space-x-4 items-center">
