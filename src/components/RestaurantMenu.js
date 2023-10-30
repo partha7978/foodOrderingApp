@@ -17,6 +17,14 @@ const RestaurantMenu = () => {
     restaurantInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
       ?.card;
 
+  const categories =
+    restaurantInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (category) =>
+        category.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  console.log(categories, "categories");
+
   return (
     <div className="w-full">
       <div className="w-full flex justify-center items-center flex-col">
@@ -40,7 +48,7 @@ const RestaurantMenu = () => {
           Clear
         </button>
       </div>
-      {itemCards.map((item) => (
+      {itemCards?.map((item) => (
         <div
           className="restaurant__menu-items border-t-2 m-6 p-4 flex justify-between items-start w-[50%] mx-auto"
           key={item?.card.info.id}

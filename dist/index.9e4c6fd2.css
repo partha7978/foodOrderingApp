@@ -241,6 +241,22 @@ img, video {
   --tw-backdrop-sepia: ;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.left-10 {
+  left: 2.5rem;
+}
+
+.top-10 {
+  top: 2.5rem;
+}
+
 .m-2 {
   margin: .5rem;
 }
@@ -251,6 +267,10 @@ img, video {
 
 .m-6 {
   margin: 1.5rem;
+}
+
+.m-1 {
+  margin: .25rem;
 }
 
 .mx-2 {
@@ -395,6 +415,10 @@ img, video {
   border-radius: .75rem;
 }
 
+.rounded-sm {
+  border-radius: .125rem;
+}
+
 .rounded-s-lg {
   border-start-start-radius: .5rem;
   border-end-start-radius: .5rem;
@@ -457,12 +481,21 @@ img, video {
   background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .p-2 {
   padding: .5rem;
 }
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-1 {
+  padding: .25rem;
 }
 
 .px-2 {
@@ -503,6 +536,16 @@ img, video {
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.px-1 {
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .text-2xl {

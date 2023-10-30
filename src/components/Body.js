@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import useRestaurantData from "../utils/useRestaurantData";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Shimmer from "./Shimmer";
+import ResCardWrapper from "./wrapper/ResCardWrapper";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const unChangedRestaurantList = useRestaurantData();
+
+  const RestaurantCardPromoted = ResCardWrapper(RestaurantCard);
 
   useEffect(() => {
     console.log(listOfRestaurants.length, "listOfRestaurants");
@@ -82,10 +85,11 @@ const Body = () => {
       </div>
       <div className="flex flex-wrap justify-center items-center">
         {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant?.info?.id}
-            resData={restaurant?.info}
-          />
+          restaurant?.info?.promoted ? (
+            <RestaurantCardPromoted key={restaurant.info.id} resData={restaurant.info} />
+          ) : (
+            <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
+          )
         ))}
       </div>
     </div>
