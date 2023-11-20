@@ -6,6 +6,7 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const { resId } = useParams();
+  const [showIndex, setShowIndex] = useState(0);
 
   const restaurantInfo = useRestaurantMenu(resId);
   console.log(restaurantInfo, "restaurantInfo");
@@ -17,7 +18,7 @@ const RestaurantMenu = () => {
   const { itemCards } =
     restaurantInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
-      console.log(itemCards, "itemCards");
+  console.log(itemCards, "itemCards");
 
   const categories =
     restaurantInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -50,8 +51,14 @@ const RestaurantMenu = () => {
           Clear
         </button>
       </div>
-      {categories?.map((category) => (
-        <RestaurantCategory key={category?.card?.card?.title} category={category.card.card}/>
+      {categories?.map((category, index) => (
+        <RestaurantCategory
+          key={category?.card?.card?.title}
+          category={category.card.card}
+          showItems={showIndex === index ? true : false}
+          index={index}
+          setShowIndex={setShowIndex}
+        />
       ))}
     </div>
   );

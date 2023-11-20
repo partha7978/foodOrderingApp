@@ -1,14 +1,16 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import useRestaurantData from "../utils/useRestaurantData";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Shimmer from "./Shimmer";
 import ResCardWrapper from "./wrapper/ResCardWrapper";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const unChangedRestaurantList = useRestaurantData();
+  const { setUserName, loggedInUser } = useContext(UserContext);
 
   const RestaurantCardPromoted = ResCardWrapper(RestaurantCard);
 
@@ -16,7 +18,7 @@ const Body = () => {
     console.log(listOfRestaurants.length, "listOfRestaurants");
     setListOfRestaurants(unChangedRestaurantList);
     console.log(listOfRestaurants, "listOfRestaurants");
-  }, [unChangedRestaurantList])
+  }, [unChangedRestaurantList]);
 
   const handleFilter = (filterName) => {
     if (filterName === "top") {
@@ -57,17 +59,24 @@ const Body = () => {
     <div className="body">
       <div className="search-bar">
         <div className="search flex justify-center items-center m-4 p-2">
-          <input className="px-3 py-2 w-96 mx-4 border border-solid border-black rounded-lg"
+          <input
+            className="px-3 py-2 w-96 mx-4 border border-solid border-black rounded-lg"
             type="text"
             placeholder="Search for a restaurant"
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <button className="mx-4 px-8 py-2 bg-gray-950 text-white rounded-lg cursor-pointer transition-all: ease-in duration-200  hover:scale-105" onClick={() => handleSearchFilter()}>
+          <button
+            className="mx-4 px-8 py-2 bg-gray-950 text-white rounded-lg cursor-pointer transition-all: ease-in duration-200  hover:scale-105"
+            onClick={() => handleSearchFilter()}
+          >
             Search
           </button>
         </div>
         <div className="flex justify-center items-center">
-          <button className="mx-4 px-4 py-1 rounded-xl text-xs bg-gray-950 text-white cursor-pointer transition-all: ease-in duration-200  hover:scale-105" onClick={() => handleFilter("all")}>
+          <button
+            className="mx-4 px-4 py-1 rounded-xl text-xs bg-gray-950 text-white cursor-pointer transition-all: ease-in duration-200  hover:scale-105"
+            onClick={() => handleFilter("all")}
+          >
             All
           </button>
           <button
@@ -78,19 +87,37 @@ const Body = () => {
           >
             Top Rated
           </button>
-          <button className="mx-4 px-4 py-1 rounded-xl text-xs bg-gray-950 text-white cursor-pointer transition-all: ease-in duration-200  hover:scale-105" onClick={() => handleFilter("clear")}>
+          <button
+            className="mx-4 px-4 py-1 rounded-xl text-xs bg-gray-950 text-white cursor-pointer transition-all: ease-in duration-200  hover:scale-105"
+            onClick={() => handleFilter("clear")}
+          >
             Clear
           </button>
+          <div>
+            <input
+              className="px-3 py-2 w-36 mx-4 border border-solid border-black rounded-lg transition-all: ease-in duration-200  hover:scale-105"
+              type="text"
+              placeholder="Enter username"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
         </div>
       </div>
       <div className="flex flex-wrap justify-center items-center">
-        {listOfRestaurants.map((restaurant) => (
+        {listOfRestaurants.map((restaurant) =>
           restaurant?.info?.promoted ? (
-            <RestaurantCardPromoted key={restaurant.info.id} resData={restaurant.info} />
+            <RestaurantCardPromoted
+              key={restaurant.info.id}
+              resData={restaurant.info}
+            />
           ) : (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
+            <RestaurantCard
+              key={restaurant.info.id}
+              resData={restaurant.info}
+            />
           )
-        ))}
+        )}
       </div>
     </div>
   );

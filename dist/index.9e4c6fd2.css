@@ -261,10 +261,6 @@ img, video {
   margin: 1.5rem;
 }
 
-.m-0 {
-  margin: 0;
-}
-
 .mx-2 {
   margin-left: .5rem;
   margin-right: .5rem;
@@ -280,14 +276,14 @@ img, video {
   margin-right: auto;
 }
 
-.my-2 {
-  margin-top: .5rem;
-  margin-bottom: .5rem;
-}
-
 .my-0 {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.my-2 {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .ml-2 {
@@ -298,32 +294,20 @@ img, video {
   margin-right: .5rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .mt-0 {
   margin-top: 0;
 }
 
-.block {
-  display: block;
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .flex {
   display: flex;
 }
 
-.hidden {
-  display: none;
-}
-
-.h-32 {
-  height: 8rem;
-}
-
-.h-40 {
-  height: 10rem;
+.h-44 {
+  height: 11rem;
 }
 
 .h-8 {
@@ -342,10 +326,6 @@ img, video {
   height: 100%;
 }
 
-.w-36 {
-  width: 9rem;
-}
-
 .w-6 {
   width: 1.5rem;
 }
@@ -354,20 +334,32 @@ img, video {
   width: 16rem;
 }
 
+.w-72 {
+  width: 18rem;
+}
+
 .w-96 {
   width: 24rem;
+}
+
+.w-\[25\%\] {
+  width: 25%;
 }
 
 .w-\[50\%\] {
   width: 50%;
 }
 
-.w-full, .w-\[100\%\] {
+.w-\[75\%\] {
+  width: 75%;
+}
+
+.w-full {
   width: 100%;
 }
 
-.transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.w-36 {
+  width: 9rem;
 }
 
 .cursor-pointer {
@@ -470,6 +462,11 @@ img, video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
 .bg-gray-950 {
   --tw-bg-opacity: 1;
   background-color: rgb(3 7 18 / var(--tw-bg-opacity));
@@ -495,18 +492,12 @@ img, video {
   background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
 
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
 .p-2 {
   padding: .5rem;
+}
+
+.p-3 {
+  padding: .75rem;
 }
 
 .p-4 {
@@ -583,6 +574,10 @@ img, video {
   line-height: 1rem;
 }
 
+.font-\[500\] {
+  font-weight: 500;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -629,12 +624,6 @@ img, video {
 
 .transition-all {
   transition-property: all;
-  transition-duration: .15s;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter, backdrop-filter;
   transition-duration: .15s;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }

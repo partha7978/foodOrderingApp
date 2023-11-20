@@ -18,7 +18,7 @@ const RestaurantCard = (props) => {
           <img
             src={`${CDN_URL}${cloudinaryImageId}`}
             alt="card image"
-            className="w-full h-40 rounded-lg"
+            className="w-72 h-44 rounded-lg"
           />
           <div className="w-full">
             <div>

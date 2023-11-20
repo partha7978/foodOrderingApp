@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 // const User = () => {
 //     return (
 //         <div className="user__card">
@@ -54,7 +55,11 @@ class User extends React.Component {
           src={this.state.userInfo.avatar_url}
           alt="avatar"
         />
-        <h2>Name: {name}</h2>
+        <h2>Name: 
+          <UserContext.Consumer>
+            {({loggedInUser}) => <h2 className="font-[500]">{loggedInUser}</h2>}
+          </UserContext.Consumer>
+        </h2>
         <p>Location: {location}</p>
         <p>Phone: 1234567890</p>
         <p>Email: 8XOgT@example.com</p>
