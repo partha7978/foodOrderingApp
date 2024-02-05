@@ -12,15 +12,15 @@ const useRestaurantData = () => {
     );
 
     let jsonData = await data.json();
+    setListOfRestaurants(
+      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
 
     setTimeout(() => {
       console.log(jsonData, "jsonData");
+      console.log(listOfRestaurants, "listOfRestaurants at hook");
     }, 5000);
-
-    setListOfRestaurants(
-      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
 
     // const newData = await fetch("https://www.swiggy.com/dapi/restaurants/list/update", {
     //   method: "POST",

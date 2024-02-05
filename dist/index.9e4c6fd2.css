@@ -302,6 +302,10 @@ img, video {
   margin-top: 2rem;
 }
 
+.mr-1 {
+  margin-right: .25rem;
+}
+
 .flex {
   display: flex;
 }
@@ -658,6 +662,36 @@ img, video {
   --tw-scale-x: .95;
   --tw-scale-y: .95;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.carousel__container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.carousel {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.carousel > .carousel-item {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 70px;
+  display: flex;
+}
+
+.carousel-item > img {
+  width: 50px;
+  height: 50px;
 }
 
 /*# sourceMappingURL=index.9e4c6fd2.css.map */

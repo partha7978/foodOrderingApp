@@ -1,0 +1,1 @@
+export { default as RoundedCarousel } from './roundedCarousel/RoundedCarousel'

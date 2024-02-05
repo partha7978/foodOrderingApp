@@ -6,6 +6,8 @@ import Shimmer from "./Shimmer";
 import ResCardWrapper from "./wrapper/ResCardWrapper";
 import UserContext from "../utils/UserContext";
 
+import { RoundedCarousel } from "./carousel";
+
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -57,6 +59,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
+      <RoundedCarousel />
       <div className="search-bar">
         <div className="search flex justify-center items-center m-4 p-2">
           <input
