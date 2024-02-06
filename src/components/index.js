@@ -8,3 +8,4 @@ export {default as User} from "./User";
 export {default as Grocery} from "./Grocery"
 export { default as RestaurantCard } from "./RestaurantCard";
 export { default as RestaurantCategory } from "./RestaurantCategory";
+export { default as Cart } from "./Cart";

@@ -59,7 +59,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <RoundedCarousel />
+      {/* <RoundedCarousel /> */}
       <div className="search-bar">
         <div className="search flex justify-center items-center m-4 p-2">
           <input

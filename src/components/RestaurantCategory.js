@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { CDN_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartSlice";
+
 const RestaurantCategory = ({ category, showItems, setShowIndex, index }) => {
+  const dispatch = useDispatch();
   // const [isActive, setIsActive] = useState(false);
   console.log(category, "categoryComponent");
   const { title, itemCards } = category;
   const handleShowItems = () => {
     showItems ? setShowIndex(-1) : setShowIndex(index);
+  }
+
+  const handleAddToCart = (item) => {
+    //* Dispatch action
+    dispatch(addItem({item}));
   }
   return (
     <div className="flex flex-col">
@@ -58,7 +67,9 @@ const RestaurantCategory = ({ category, showItems, setShowIndex, index }) => {
                 alt="card image"
                 className="w-full rounded-lg"
               />
-              <button className="px-4 py-1 m-2 border-black border-[1px] rounded-md bg-black-50 text-sm transition-all ease-in-out duration-200 hover:scale-105">
+              <button className="px-4 py-1 m-2 border-black border-[1px] rounded-md bg-black-50 text-sm transition-all ease-in-out duration-200 hover:scale-105"
+                onClick={() => handleAddToCart(item)}
+              >
                 Add
               </button>
             </div>

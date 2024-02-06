@@ -11,7 +11,7 @@ const useRestaurantMenu = (resId) => {
         const jsonData = await data.json();
 
         setTimeout(() => {
-                console.log(jsonData, "jsonDataREs");
+                console.log(jsonData.data, "jsonDataREs");
         }, 5000);
         setResInfo(jsonData.data);
     }

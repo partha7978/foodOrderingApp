@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
-import { Header, Body, About, Contact, Error } from "./components";
+import { Header, Body, About, Contact, Error, Cart } from "./components";
 
 import {
   createBrowserRouter,
@@ -56,6 +56,10 @@ const appRouter = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
       },
       {
         path: "/restaurant/:resId",

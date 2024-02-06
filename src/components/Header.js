@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { FiShoppingCart } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
   const [btnName, setBtnName] = useState("login");
@@ -15,6 +16,7 @@ export const Header = () => {
     console.log(btnName);
   };
 
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex justify-between p-4 ">
       <div className="logo-container flex justify-center items-center">
@@ -45,7 +47,7 @@ export const Header = () => {
           </li>
           <li className="px-2">
             <Link className="font-[500] flex items-center flex-row" to="/cart">
-             <FiShoppingCart className="mr-1"/> Cart
+              <FiShoppingCart className="mr-1" /> Cart {cartItems.length}
             </Link>
           </li>
           <li className="px-2">
