@@ -58,6 +58,7 @@ const RestaurantMenu = () => {
           showItems={showIndex === index ? true : false}
           index={index}
           setShowIndex={setShowIndex}
+          resName={name}
         />
       ))}
     </div>

@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { CDN_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../store/cartSlice";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+import { addResName } from "../store/cartSlice";
 
-const RestaurantCategory = ({ category, showItems, setShowIndex, index }) => {
+const RestaurantCategory = ({ category, showItems, setShowIndex, index, resName }) => {
   const dispatch = useDispatch();
   // const [isActive, setIsActive] = useState(false);
   console.log(category, "categoryComponent");
@@ -15,15 +18,16 @@ const RestaurantCategory = ({ category, showItems, setShowIndex, index }) => {
   const handleAddToCart = (item) => {
     //* Dispatch action
     dispatch(addItem({item}));
+    dispatch(addResName({resName}));
   }
   return (
     <div className="flex flex-col">
       <div
-        className="restaurant__menu-items border-t-2 m-6 mt-0 p-4 flex justify-between items-start w-[50%] mx-auto bg-gray-100 rounded-lg"
+        className="restaurant__menu-items border-t-2 m-6 mt-0 p-4 flex justify-between items-center w-[50%] mx-auto bg-gray-100 rounded-lg"
         onClick={() => handleShowItems()}
       >
         <span className="text-lg font-semibold">{`${title} - [${itemCards.length}]`}</span>
-        <span>{showItems ? "▲" : "▼"}</span>
+        <span>{showItems ? <IoIosArrowUp /> : <IoIosArrowDown />}</span>
       </div>
       {showItems &&
         itemCards?.map((item) => (

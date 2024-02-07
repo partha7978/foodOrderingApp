@@ -664,6 +664,14 @@ img, video {
   font-size: 10px;
 }
 
+.text-\[14px\] {
+  font-size: 14px;
+}
+
+.text-\[12px\] {
+  font-size: 12px;
+}
+
 .font-\[500\] {
   font-weight: 500;
 }

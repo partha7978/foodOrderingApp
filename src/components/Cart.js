@@ -6,12 +6,13 @@ import { removeItem } from "../store/cartSlice";
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.items);
+  const {resName} = useSelector((store) => store.cart.resName);
 
   const handleRemoveFromCart = (id) => {
     const cartItem = cartItems.filter((item) => item.item.card.info.id === id);
     dispatch(removeItem(cartItem));
   };
-
+console.log(cartItems, "cartItems");
   return (
     <div className="w-full h-full flex justify-center items-center">
       {cartItems.length === 0 ? (
@@ -27,7 +28,7 @@ const Cart = () => {
                     card: {
                       info: { name, id, imageId, price, isVeg },
                     },
-                  },
+                  }
                 },
                 index
               ) => (
@@ -42,7 +43,8 @@ const Cart = () => {
                         className="w-20 h-auto mx-2 rounded-[5px]"
                       />
                       <div className="flex flex-col">
-                        <span className="flex items-center mx-2">{name}</span>
+                        <span className="flex items-center mx-2 text-[10px]">From {resName}</span>
+                        <span className="flex items-center mx-2 font-medium">{name}</span>
                         <span
                           className={`flex items-center mx-2 font-medium text-[10px] ${
                             isVeg ? "text-green-500" : "text-red-500"
@@ -77,7 +79,7 @@ const Cart = () => {
               )}
               Rs.
             </div>
-            <button className="px-3 py-1 bg-gray-950 text-white rounded-[5px] cursor-pointer transition-all: ease-in duration-200  hover:scale-105">
+            <button className="px-4 py-2 bg-gray-950 text-white rounded-[5px] cursor-pointer transition-all: ease-in duration-200  hover:scale-105">
               Place Order
             </button>
           </div>
